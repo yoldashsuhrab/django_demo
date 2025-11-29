@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-znsns_-37^wglt3y$6p83s#6+8x%+i8lk+3$vctmn2dxg4o-8h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'django-demo-xdi1.onrender.com',
@@ -169,3 +169,12 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'shmakeyh12@gmail.com'
 EMAIL_HOST_PASSWORD = 'rmcdhtdgydfvtnpj'
+
+
+# Force HTTPS in all URLs (important for Render)
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# If behind a proxy (Render uses a proxy)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
