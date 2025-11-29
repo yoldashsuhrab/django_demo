@@ -1,0 +1,33 @@
+{% extends "../base.html" %}
+{% load socialaccount %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block cssfile %}
+<link rel="stylesheet" href="{% static 'logindemo/login.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="login-card">
+    <h2 class="login-title">Login</h2>
+    <form method="post" class="login-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+    <div class="social-login">
+      <a href="{% provider_login_url "google" %}" class="btn btn-google">
+        <svg class="google-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 533.5 544.3">
+          <!-- Google “G” logo path -->
+          <path d="M533.5 278.4c0-18.2-1.5-36.2-4.4-53.6H272.1v101.7h146.9c-6.3 34.2-24 63.2-51.2 82.7l83 64.3c48.4-44.6 76.7-110.4 76.7-194.9z" fill="#4285f4"/>
+          <path d="M272.1 544.3c69.6 0 128.1-22.9 170.8-62.2l-83-64.3c-23.1 15.5-52.6 24.6-87.8 24.6-67.6 0-124.9-45.6-145.4-107.2l-84.8 65.3c41.3 81.6 124.9 144 230.2 144z" fill="#34a853"/>
+          <path d="M126.7 324.9c-9.6-28.5-9.6-59.3 0-87.8L41.9 172c-46.5 90.5-46.5 197.7 0 288.2l84.8-65.3z" fill="#fbbc05"/>
+          <path d="M272.1 107.7c37.8 0 71.7 13.1 98.5 38.7l73.9-73.9C407.4 24.4 345.5 0 272.1 0 166.8 0 83.2 62.4 41.9 144.0l84.8 65.3c20.5-61.6 77.8-107.2 145.4-107.2z" fill="#ea4335"/>
+        </svg>
+        <span>Google</span>
+      </a>
+    </div>
+  </div>
+{% endblock %}

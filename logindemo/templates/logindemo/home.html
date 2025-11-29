@@ -1,0 +1,24 @@
+{% extends "../base.html" %}
+{% load socialaccount %}
+
+{% block content %}
+        <h1>Welcome to the Home Page</h1>
+        {% if user.is_authenticated %}
+            {% get_social_accounts user as accounts %}
+            {% if accounts.google %}
+                {% for account in accounts.google %}
+                    <img src="{{ account.get_avatar_url }}" alt="Google Avatar" width="50" height="50">
+                {% endfor %}
+            {% endif %}
+            {% if accounts.github %}
+                {% for account in accounts.github %}
+                    <img src="{{ account.get_avatar_url }}" alt="GitHub Avatar" width="50" height="50">
+                {% endfor %}
+            {% endif %}
+            <p>Hello, {{ user.username }}! You are logged in.</p>
+            <a href="{% url 'account_logout' %}">Logout</a>
+        {% else %}
+            <p>You are not logged in.</p>
+            <a href="{% url 'account_login' %}">Login</a>
+        {% endif %}
+{% endblock content %}
