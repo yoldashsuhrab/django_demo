@@ -26,14 +26,13 @@ SECRET_KEY = 'django-insecure-znsns_-37^wglt3y$6p83s#6+8x%+i8lk+3$vctmn2dxg4o-8h
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "django-demo-xdi1.onrender.com",
+    'django-demo-xdi1.onrender.com',
     "127.0.0.1",
     "localhost"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://django-demo-xdi1.onrender.com",
-    "https://accounts.google.com",
 ]
 
 
